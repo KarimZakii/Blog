@@ -1,4 +1,4 @@
-const { Sequelize } = require("sequelize");
+import { Sequelize } from "sequelize";
 
 const sequelize = new Sequelize({
   dialect: "postgres",
@@ -7,6 +7,5 @@ const sequelize = new Sequelize({
   username: "postgres",
   password: "12345",
   database: "Eduncy_Blog",
-  logging: true,
 });
-module.exports = sequelize;
+export default sequelize;

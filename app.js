@@ -1,8 +1,9 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
-const helmet = require("helmet");
-const sequelize = require("./util/db");
+import express from "express";
+import bodyParser from "body-parser";
+import cors from "cors";
+import helmet from "helmet";
+import sequelize from "./util/db.js";
+import authRouter from "./routes/auth.js";
 
 const app = express();
 app.use(express.json());
@@ -16,7 +17,8 @@ app.get("/", (req, res) => {
   res.send("connected");
 });
 
-//routes
+// Routes
+app.use(authRouter);
 
 async function startServer() {
   try {
