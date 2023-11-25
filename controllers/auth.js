@@ -6,7 +6,7 @@ export const register = async (req, res) => {
   try {
     const { username, password, email } = req.body;
 
-    const salt = await bcrypt.genSalt();
+    const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
     const user = new User({ username, password: hashedPassword, email });
@@ -20,11 +20,11 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
   try {
     const { username, password } = req.body;
-    const user = User.findOne({ where: { username } });
+    const user = await User.findOne({ where: { username } });
     if (!user) return res.status(400).json({ message: "User does not exist." });
     const isMatch = await bcrypt.compare(password, user.password);
-    if (isMatch) {
-      return res.status(400).json({ message: "User Does not Exist" });
+    if (!isMatch) {
+      return res.status(400).json({ message: "Wrong Password" });
     }
     const token = jwt.sign(
       { id: user.id },

@@ -1,8 +1,6 @@
 import { Sequelize } from "sequelize";
 import sequelize from "../util/db.js";
-
-// const Sequelize = require("sequelize");
-// const sequelize = require("../util/db");
+import Post from "./Post.js";
 
 const User = sequelize.define("User", {
   id: {
@@ -24,4 +22,5 @@ const User = sequelize.define("User", {
     type: Sequelize.STRING,
   },
 });
+User.hasMany(Post, { onDelete: "CASCADE" });
 export default User;
