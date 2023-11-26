@@ -22,5 +22,5 @@ const User = sequelize.define("User", {
     type: Sequelize.STRING,
   },
 });
-User.hasMany(Post, { onDelete: "CASCADE" });
+
 export default User;

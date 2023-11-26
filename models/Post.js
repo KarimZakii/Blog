@@ -18,5 +18,5 @@ const Post = sequelize.define("Post", {
     allowNull: false,
   },
 });
-Post.belongsTo(User)
+
 export default Post;

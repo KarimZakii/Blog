@@ -4,6 +4,9 @@ import cors from "cors";
 import helmet from "helmet";
 import sequelize from "./util/db.js";
 import authRouter from "./routes/auth.js";
+import feedRouter from "./routes/feed.js";
+import User from "./models/User.js";
+import Post from "./models/Post.js";
 
 const app = express();
 app.use(express.json());
@@ -19,6 +22,10 @@ app.get("/", (req, res) => {
 
 // Routes
 app.use(authRouter);
+app.use(feedRouter);
+
+User.hasMany(Post, { onDelete: "CASCADE" });
+Post.belongsTo(User);
 
 async function startServer() {
   try {
