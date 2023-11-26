@@ -122,7 +122,7 @@ export const deletePost = async (req, res, next) => {
 
     // Respond with a success message and the deleted post
     res
-      .status(200)
+      .status(204)
       .json({ message: "Post Deleted Successfully", post: deletedPost });
   } catch (err) {
     // Handle errors and respond with an error message

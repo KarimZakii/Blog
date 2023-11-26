@@ -7,6 +7,7 @@ import authRouter from "./routes/auth.js";
 import feedRouter from "./routes/feed.js";
 import User from "./models/User.js";
 import Post from "./models/Post.js";
+import swaggerDocs from "./util/swagger.js";
 
 const app = express();
 app.use(express.json());
@@ -31,7 +32,9 @@ async function startServer() {
   try {
     await sequelize.sync({ force: false });
     console.log("Database synchronized");
-    app.listen(3000);
+    app.listen(3000, () => {
+      swaggerDocs(app, 3000);
+    });
   } catch (error) {
     console.error("Error synchronizing database:", error);
   }
