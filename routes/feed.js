@@ -39,7 +39,7 @@ const feedRouter = express.Router();
  *       500:
  *         description: Internal server error.
  */
-// route to create a new post
+
 feedRouter.post("/create", verifyToken, createPost);
 /**
  * @swagger
@@ -53,7 +53,6 @@ feedRouter.post("/create", verifyToken, createPost);
  *       500:
  *         description: Internal server error.
  */
-//route to retrieve all posts from database
 feedRouter.get("/posts", allPosts);
 
 /**
@@ -95,7 +94,6 @@ feedRouter.get("/posts", allPosts);
  *         description: Internal server error.
  */
 
-// router to edit an existing post
 feedRouter.put("/edit/:postId", verifyToken, editPost);
 
 /**
@@ -125,7 +123,6 @@ feedRouter.put("/edit/:postId", verifyToken, editPost);
  *       500:
  *         description: Internal server error.
  */
-// route to delete an existing post
 feedRouter.delete("/delete/:postId", verifyToken, deletePost);
 
 export default feedRouter;
