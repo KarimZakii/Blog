@@ -1,5 +1,6 @@
 import { Sequelize } from "sequelize";
 
+// Database connection
 const sequelize = new Sequelize({
   dialect: "postgres",
   host: "localhost",

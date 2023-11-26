@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-
+// Verifying the token
 const verifyToken = async (req, res, next) => {
   try {
     let token = req.header("Authorization");
@@ -13,6 +13,7 @@ const verifyToken = async (req, res, next) => {
     if (!verified) {
       res.status(401).json({ message: "You must log in" });
     }
+    // making sure that the user id is stored on the request object
     req.user = verified;
     next();
   } catch (err) {
