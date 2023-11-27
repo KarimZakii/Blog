@@ -45,5 +45,5 @@ docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d
 To run Docker containers in production enviroment:
 
 ```bash
-(docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d)
+docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d
 ```
