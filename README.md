@@ -24,7 +24,7 @@ Make sure you have the following installed:
 
 ## Configuration
 
-Ensure that your `.env` file is set up with the required environment variables. You can use the provided `.env.example` file as a template.
+Ensure that your `.env` file is set up with the required environment variables.
 
 ## Usage
 
