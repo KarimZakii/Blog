@@ -8,6 +8,9 @@ import feedRouter from "./routes/feed.js";
 import User from "./models/User.js";
 import Post from "./models/Post.js";
 import swaggerDocs from "./util/swagger.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
 app.use(express.json());
@@ -25,6 +28,7 @@ app.get("/", (req, res) => {
 app.use(authRouter);
 app.use(feedRouter);
 
+// Db relations
 User.hasMany(Post, { onDelete: "CASCADE" });
 Post.belongsTo(User);
 
@@ -32,7 +36,7 @@ async function startServer() {
   try {
     await sequelize.sync({ force: false });
     console.log("Database synchronized");
-    app.listen(3000, () => {
+    app.listen(process.env.PORT, () => {
       swaggerDocs(app, 3000);
     });
   } catch (error) {
