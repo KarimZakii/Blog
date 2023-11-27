@@ -11,7 +11,7 @@ Make sure you have the following installed:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/your-project.git
+   git clone https://github.com/KarimZakii/Blog.git
    cd your-project
    ```
 
@@ -29,12 +29,20 @@ Ensure that your `.env` file is set up with the required environment variables. 
 
 Run the application locally:
 
+```bash
 npm start
+```
 
 ## Docker
 
-To run Docker containers in development enviroment
-(docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d)
+To run Docker containers in development enviroment:
 
-To run Docker containers in production enviroment
+```bash
+docker-compose -f docker-compose.yml -f docker-compose.dev.yml up -d
+```
+
+To run Docker containers in production enviroment:
+
+```bash
 (docker-compose -f docker-compose.yml -f docker-compose.prod.yml up -d)
+```
