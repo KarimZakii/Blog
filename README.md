@@ -3,6 +3,7 @@
 Make sure you have the following installed:
 
 - [Docker](https://www.docker.com/)
+- [postgres](https://www.postgresql.org/)
 - [Node.js](https://nodejs.org/)
 - [npm](https://www.npmjs.com/)
 
